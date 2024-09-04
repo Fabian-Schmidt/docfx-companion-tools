@@ -2,7 +2,7 @@
   "profiles": {
     "DocFxTocGenerator": {
       "commandName": "Project",
-      "commandLineArgs": "-d \"c:\\temp\\docfxindex\" --index"
+      "commandLineArgs": "-d \"c:\\temp\\docs SPLIT\" -m 5"
     }
   }
 }

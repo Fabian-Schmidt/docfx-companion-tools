@@ -454,20 +454,20 @@ namespace DocFxTocGenerator
                 }
             }
 
+            // we always want to order INDEX.md as first entry. So add it if not in list yet
+            string indexEntry = order.FirstOrDefault(x => string.Equals("index", x, StringComparison.OrdinalIgnoreCase));
+            if (string.IsNullOrEmpty(indexEntry))
+            {
+                order.Add("index");
+                _message.Verbose($"'index' added to order-list");
+            }
+
             // we always want to order README.md. So add it if not in list yet
             string readmeEntry = order.FirstOrDefault(x => string.Equals("README", x, StringComparison.OrdinalIgnoreCase));
             if (string.IsNullOrEmpty(readmeEntry))
             {
                 order.Add("README");
                 _message.Verbose($"'README' added to order-list");
-            }
-
-            // we always want to order INDEX.md as well. So add it if not in list yet
-            string indexEntry = order.FirstOrDefault(x => string.Equals("index", x, StringComparison.OrdinalIgnoreCase));
-            if (string.IsNullOrEmpty(indexEntry))
-            {
-                order.Add("index");
-                _message.Verbose($"'index' added to order-list");
             }
 
             return order;
